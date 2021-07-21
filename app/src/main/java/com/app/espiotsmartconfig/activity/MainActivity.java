@@ -1,12 +1,22 @@
-package com.app.espiotsmartconfig;
+package com.app.espiotsmartconfig.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+
+import com.app.espiotsmartconfig.R;
+import com.app.espiotsmartconfig.base.BaseActivity;
+import com.app.espiotsmartconfig.model.EventMsg;
+import com.app.espiotsmartconfig.widget.HeaderView;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+/**
+ * 作者:胡涛
+ * 日期:2021-7-22
+ * 时间:0:14
+ * 功能:主页
+ */
 public class MainActivity extends BaseActivity {
 
     private HeaderView mHeaderView;
@@ -16,12 +26,7 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mHeaderView = findViewById(R.id.header);
-        mHeaderView.setTitle("设备列表")
-                .setBackVisible(false);
-    }
-
-    public void startSmartConfig(View view) {
-        startActivity(new Intent(this, SmargConfigActivity.class));
+        mHeaderView.setHeaderClickListener(() -> startActivity(new Intent(this, SmargConfigActivity.class)));
     }
 
     @Override

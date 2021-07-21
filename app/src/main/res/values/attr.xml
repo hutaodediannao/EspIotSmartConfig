@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="HeaderView">
+        <attr name="titleContent" format="reference|string" />
+        <attr name="rightContent" format="reference|string"/>
+        <attr name="contentColor" format="reference" />
+        <attr name="backVisible" format="boolean" />
+    </declare-styleable>
+</resources>

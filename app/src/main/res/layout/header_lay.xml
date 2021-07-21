@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="48dp"
     android:background="@color/royalBlue">
 
     <ImageView
@@ -19,6 +19,19 @@
         android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="17sp"
-        android:text="智能设备控制"/>
+        android:text=""/>
+
+    <TextView
+        android:id="@+id/tvMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:paddingLeft="10dp"
+        android:layout_gravity="right|center_vertical"
+        android:paddingRight="10dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:text=""/>
 
 </FrameLayout>

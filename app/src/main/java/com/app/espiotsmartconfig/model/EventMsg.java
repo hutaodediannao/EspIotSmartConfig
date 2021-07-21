@@ -1,8 +1,8 @@
-package com.app.espiotsmartconfig;
+package com.app.espiotsmartconfig.model;
 
 public class EventMsg {
-    int code;
-    String data;
+   public int code;
+   public String data;
 
     public EventMsg(int code, String data) {
         this.code = code;

@@ -145,4 +145,5 @@
     <color name="darkBlue">#FF00008B</color><!--暗蓝色-->
     <color name="navy">#FF000080</color><!--海军色-->
     <color name="unBlack">#FF2B2B2B</color><!--不知名黑色-->
+    <color name="iconBlue">#1F78F8</color>
 </resources>

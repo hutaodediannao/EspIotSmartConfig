@@ -1,4 +1,4 @@
-package com.app.espiotsmartconfig;
+package com.app.espiotsmartconfig.base;
 
 import android.Manifest;
 import android.content.pm.PackageInfo;
@@ -15,9 +15,9 @@ import android.text.style.ForegroundColorSpan;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.location.LocationManagerCompat;
 
+import com.app.espiotsmartconfig.R;
 import com.espressif.iot.esptouch2.provision.TouchNetUtil;
 
 import java.net.InetAddress;

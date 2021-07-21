@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.GuideActivity">
+
+    <LinearLayout
+        android:id="@+id/iconLay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="150dp"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/ic_splash"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/iconBlue"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:text="胡氏智能"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/iconBlue"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_marginBottom="100dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:text="万物互联，尽在掌握"/>
+
+</FrameLayout>

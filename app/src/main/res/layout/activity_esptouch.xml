@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_esptouch"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.app.espiotsmartconfig.HeaderView
+    <com.app.espiotsmartconfig.widget.HeaderView
         android:id="@+id/header"
+        app:titleContent="智能配网"
+        app:backVisible="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
@@ -137,10 +140,13 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/confirmBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button_shape"
             android:text="@string/esptouch1_confirm"
-            app:layout_constraintTop_toBottomOf="@+id/messageView"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/messageView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
@@ -168,12 +174,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/cancel_button"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="30dp"
+            android:text="@string/esptouch1_configuring_message"/>
+
+        <Button
+            android:id="@+id/cancel_button"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
             android:text="@android:string/cancel"
+            android:background="@drawable/button_shape"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/progressBar" />

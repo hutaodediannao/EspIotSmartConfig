@@ -1,4 +1,4 @@
-package com.app.espiotsmartconfig;
+package com.app.espiotsmartconfig.activity;
 
 import android.Manifest;
 import android.content.Context;
@@ -8,12 +8,15 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 
+import com.app.espiotsmartconfig.EspApp;
+import com.app.espiotsmartconfig.model.EventMsg;
+import com.app.espiotsmartconfig.R;
+import com.app.espiotsmartconfig.base.AbsBaseActivity;
 import com.app.espiotsmartconfig.databinding.ActivityEsptouchBinding;
 import com.app.espiotsmartconfig.util.KeyboardUtil;
 import com.espressif.iot.esptouch.EsptouchTask;
@@ -25,7 +28,6 @@ import com.espressif.iot.esptouch.util.TouchNetUtil;
 import org.greenrobot.eventbus.EventBus;
 
 import java.lang.ref.WeakReference;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
