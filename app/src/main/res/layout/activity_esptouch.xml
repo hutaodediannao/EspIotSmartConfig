@@ -8,7 +8,7 @@
 
     <com.app.espiotsmartconfig.widget.HeaderView
         android:id="@+id/header"
-        app:titleContent="智能配网"
+        app:titleContent="模组配网"
         app:backVisible="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

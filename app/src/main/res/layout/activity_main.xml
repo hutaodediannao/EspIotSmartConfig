@@ -13,7 +13,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:backVisible="false"
-        app:rightContent="智能配网"
+        app:rightContent="模组配网"
         app:titleContent="设备列表" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="230dp"
+        android:onClick="open"
+        android:text="打开" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="298dp"
+        android:onClick="close"
+        android:text="关闭" />
+
 
 </RelativeLayout>

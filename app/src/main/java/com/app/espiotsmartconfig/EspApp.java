@@ -13,15 +13,25 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 
+import com.app.espiotsmartconfig.core.IMQMsgCallBack;
+import com.app.espiotsmartconfig.core.MQTTService;
+import com.app.espiotsmartconfig.core.MyServiceConnection;
+import com.app.espiotsmartconfig.model.EventMsg;
+
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.HashMap;
 import java.util.Map;
+
+import static com.app.espiotsmartconfig.model.EventMsg.CONNECT_ED_CODE;
+import static com.app.espiotsmartconfig.model.EventMsg.CONNECT_ERROR_CODE;
+import static com.app.espiotsmartconfig.model.EventMsg.CONNECT_ING_CODE;
+import static com.app.espiotsmartconfig.model.EventMsg.RECEIVE_MESSAGE_CODE;
 
 public class EspApp extends Application {
 
     private static EspApp app;
-
     private MutableLiveData<String> mBroadcastData;
-
     private Map<String, Object> mCacheMap;
 
     private BroadcastReceiver mReceiver = new BroadcastReceiver() {
@@ -52,7 +62,11 @@ public class EspApp extends Application {
             filter.addAction(LocationManager.PROVIDERS_CHANGED_ACTION);
         }
         registerReceiver(mReceiver, filter);
+
+        //启动Mqtt服务
+        startMqttServer();
     }
+
     @Override
     public void onTerminate() {
         super.onTerminate();
@@ -81,5 +95,52 @@ public class EspApp extends Application {
 
     public Object takeCache(String key) {
         return mCacheMap.remove(key);
+    }
+
+    private MyServiceConnection mServiceConnection;
+
+    /**
+     * 启动MQTTserver并监听数据
+     */
+    private void startMqttServer() {
+        mServiceConnection = new MyServiceConnection(imqMsgCallBack);
+        Intent intent = new Intent(this, MQTTService.class);
+        bindService(intent, mServiceConnection, Context.BIND_AUTO_CREATE);
+    }
+
+    IMQMsgCallBack imqMsgCallBack = new IMQMsgCallBack() {
+        @Override
+        public void connectIng() {
+            //服务器连接中
+            EventBus.getDefault().post(new EventMsg(CONNECT_ING_CODE));
+        }
+
+        @Override
+        public void connected() {
+            //服务器已连接
+            EventBus.getDefault().post(new EventMsg(CONNECT_ED_CODE));
+        }
+
+        @Override
+        public void connectFailed() {
+            //服务器连接失败
+            EventBus.getDefault().post(new EventMsg(CONNECT_ERROR_CODE));
+        }
+
+        @Override
+        public void setMessage(String message) {
+            //收到MQTT下发的消息
+            EventBus.getDefault().post(new EventMsg(RECEIVE_MESSAGE_CODE, message));
+        }
+
+        @Override
+        public void onError(Throwable e) {
+            //出错
+            mServiceConnection.getMqttService().connect();
+        }
+    };
+
+    public MyServiceConnection getServiceConnection() {
+        return mServiceConnection;
     }
 }

@@ -31,6 +31,8 @@ import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.Locale;
 
+import static com.app.espiotsmartconfig.model.EventMsg.TOAST_CODE;
+
 public class SmargConfigActivity extends AbsBaseActivity {
     private static final String TAG = SmargConfigActivity.class.getSimpleName();
 
@@ -277,7 +279,7 @@ public class SmargConfigActivity extends AbsBaseActivity {
 
             if (mActivity.get() != null && !mActivity.get().isFinishing()) {
                 //发送一条消息给主控制页面，提示配网成功
-                EventBus.getDefault().post(new EventMsg(100, "配网成功！"));
+                EventBus.getDefault().post(new EventMsg(TOAST_CODE, "配网成功！"));
                 mActivity.get().finish();
             }
         }

@@ -12,10 +12,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.app.espiotsmartconfig.MainActivity;
 import com.app.espiotsmartconfig.R;
 import com.app.espiotsmartconfig.base.BaseActivity;
-
-import java.lang.ref.WeakReference;
 
 /**
  * 作者:胡涛
