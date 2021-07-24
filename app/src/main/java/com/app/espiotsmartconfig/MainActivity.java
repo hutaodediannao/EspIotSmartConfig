@@ -16,7 +16,6 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import static com.app.espiotsmartconfig.model.EventMsg.CONNECT_ED_CODE;
 import static com.app.espiotsmartconfig.model.EventMsg.CONNECT_ERROR_CODE;
-import static com.app.espiotsmartconfig.model.EventMsg.CONNECT_FAILED_CODE;
 import static com.app.espiotsmartconfig.model.EventMsg.CONNECT_ING_CODE;
 import static com.app.espiotsmartconfig.model.EventMsg.RECEIVE_MESSAGE_CODE;
 import static com.app.espiotsmartconfig.model.EventMsg.TOAST_CODE;
@@ -29,14 +28,13 @@ import static com.app.espiotsmartconfig.model.EventMsg.TOAST_CODE;
  */
 public class MainActivity extends BaseActivity {
 
-    private HeaderView mHeaderView;
     private ProgressDialog loadingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mHeaderView = findViewById(R.id.header);
+        HeaderView mHeaderView = findViewById(R.id.header);
         mHeaderView.setHeaderClickListener(() -> startActivity(new Intent(this, SmargConfigActivity.class)));
     }
 
@@ -49,6 +47,8 @@ public class MainActivity extends BaseActivity {
     public void onGetMessage(EventMsg msg) {
         switch (msg.code) {
             case TOAST_CODE:
+            case RECEIVE_MESSAGE_CODE:
+                //接收到指令
                 String data = msg.data;
                 showToast(data);
                 break;
@@ -64,13 +64,6 @@ public class MainActivity extends BaseActivity {
                 if (loadingDialog != null) {
                     loadingDialog.dismiss();
                 }
-                break;
-            case CONNECT_FAILED_CODE:
-                break;
-            case RECEIVE_MESSAGE_CODE:
-                //接收到指令
-                String msgData = msg.data;
-                showToast(msgData);
                 break;
             default:
                 break;
