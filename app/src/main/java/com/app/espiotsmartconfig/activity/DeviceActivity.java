@@ -2,6 +2,7 @@ package com.app.espiotsmartconfig.activity;
 
 import android.os.Bundle;
 import android.widget.ImageView;
+
 import com.app.espiotsmartconfig.R;
 import com.app.espiotsmartconfig.base.BaseActivity;
 import com.app.espiotsmartconfig.cache.Const;
@@ -26,8 +27,9 @@ public class DeviceActivity extends BaseActivity {
 
         ImageView imageView = findViewById(R.id.ivFire);
         imageView.setOnClickListener(view -> {
-            isOn = !isOn;
-            BspHelper.pushData(isOn ? "1" : "0");
+            if (isOn) return;
+            isOn = true;
+            BspHelper.pushData("1");
             imageView.setImageResource(isOn ? R.mipmap.on_fire : R.mipmap.off_fire);
             if (isOn) {
                 //3秒之后，自动关闭打火机
@@ -37,7 +39,7 @@ public class DeviceActivity extends BaseActivity {
                         isOn = false;
                         imageView.setImageResource(isOn ? R.mipmap.on_fire : R.mipmap.off_fire);
                     }
-                }, 3000);
+                }, 5000);
             }
         });
 
