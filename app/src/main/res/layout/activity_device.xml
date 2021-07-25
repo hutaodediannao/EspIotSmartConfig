@@ -4,21 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F6F6F6"
     tools:context=".activity.DeviceActivity">
+
+    <ImageView
+        android:id="@+id/ivFire"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitXY"
+        android:src="@mipmap/off_fire" />
 
     <com.app.espiotsmartconfig.widget.HeaderView
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:backVisible="false"
-        app:rightContent=""/>
-
-    <Switch
-        android:id="@+id/ledSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textSize="17sp"
-        android:text="开关" />
-
+        app:rightContent="" />
 </RelativeLayout>

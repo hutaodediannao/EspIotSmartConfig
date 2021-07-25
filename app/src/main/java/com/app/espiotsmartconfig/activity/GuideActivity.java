@@ -15,6 +15,9 @@ import android.widget.TextView;
 import com.app.espiotsmartconfig.MainActivity;
 import com.app.espiotsmartconfig.R;
 import com.app.espiotsmartconfig.base.BaseActivity;
+import com.app.espiotsmartconfig.util.APKVersionInfoUtils;
+
+import org.w3c.dom.Text;
 
 /**
  * 作者:胡涛
@@ -38,6 +41,9 @@ public class GuideActivity extends BaseActivity {
         imageView = findViewById(R.id.imageView);
         tvContent = findViewById(R.id.tvContent);
         tvContent.setVisibility(View.GONE);
+        TextView tvVersion = findViewById(R.id.tvVersion);
+        String versionName = "Version:" + APKVersionInfoUtils.getVersionName(this);
+        tvVersion.setText(versionName);
 
         initAnim();
     }

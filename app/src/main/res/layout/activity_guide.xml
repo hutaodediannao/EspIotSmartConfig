@@ -11,26 +11,26 @@
         android:id="@+id/iconLay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_gravity="center_horizontal|top"
         android:layout_marginTop="150dp"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
             android:scaleType="centerInside"
-            app:srcCompat="@drawable/ic_splash"/>
+            app:srcCompat="@drawable/ic_splash" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
+            android:text="胡氏智能"
             android:textColor="@color/iconBlue"
-            android:textStyle="bold"
             android:textSize="17sp"
-            android:text="胡氏智能"/>
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -38,12 +38,35 @@
         android:id="@+id/tvContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/iconBlue"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:layout_marginBottom="100dp"
         android:layout_gravity="bottom|center_horizontal"
-        android:text="万物互联，尽在掌握"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="100dp"
+        android:text="万物互联，尽在掌握"
+        android:textColor="@color/iconBlue"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:gravity="center"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="50dp"
+        android:textSize="14sp"
+        android:textColor="@color/gray"
+        android:textStyle="bold"
+        android:text="Version: " />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:gravity="center"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="20dp"
+        android:textSize="12sp"
+        android:textColor="@color/gray"
+        android:textStyle="bold"
+        android:text="Copyright ©2021 HuTao All Rights Reserved" />
 
 </FrameLayout>
