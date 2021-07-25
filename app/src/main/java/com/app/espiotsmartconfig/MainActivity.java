@@ -46,12 +46,17 @@ public class MainActivity extends BaseActivity {
     private List<BaseFragment> fragmentList = new ArrayList<>();
     private ViewPager viewPager;
     private List<Integer> bottomNavList = new ArrayList<>();
+    private List<String> titleNavList = new ArrayList<>();
 
     @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setupUI();
+    }
+
+    private void setupUI() {
         HeaderView mHeaderView = findViewById(R.id.header);
         mHeaderView.setHeaderClickListener(() -> startActivity(new Intent(this, SmargConfigActivity.class)));
 
@@ -65,19 +70,22 @@ public class MainActivity extends BaseActivity {
         viewPager.setCurrentItem(0);
         viewPager.setOffscreenPageLimit(fragmentList.size());
         viewPager.setAdapter(fragmentPagerAdapter);
-        
+
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(item -> {
             item.setChecked(true);
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     viewPager.setCurrentItem(0);
+                    mHeaderView.setTitle(titleNavList.get(0)).setMenuVisible(true);
                     break;
                 case R.id.navigation_dashboard:
                     viewPager.setCurrentItem(1);
+                    mHeaderView.setTitle(titleNavList.get(1)).setMenuVisible(false);
                     break;
                 case R.id.navigation_notifications:
                     viewPager.setCurrentItem(2);
+                    mHeaderView.setTitle(titleNavList.get(2)).setMenuVisible(false);
                     break;
                 default:
                     break;
@@ -90,10 +98,16 @@ public class MainActivity extends BaseActivity {
                 R.id.navigation_dashboard,
                 R.id.navigation_notifications
         ));
-        viewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener(){
+        titleNavList.addAll(Arrays.asList(
+                getString(R.string.title_home),
+                getString(R.string.title_dashboard),
+                getString(R.string.title_notifications)
+        ));
+        viewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
+                mHeaderView.setTitle(titleNavList.get(position)).setMenuVisible(position == 0);
                 navView.setSelectedItemId(bottomNavList.get(position));
             }
         });
@@ -133,14 +147,6 @@ public class MainActivity extends BaseActivity {
                     break;
             }
         }
-    }
-
-    public void open(View view) {
-        BspHelper.pushData("1");
-    }
-
-    public void close(View view) {
-        BspHelper.pushData("0");
     }
 
 }

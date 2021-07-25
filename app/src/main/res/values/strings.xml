@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">胡氏智能配网</string>
-    <string name="menu_item_about">About App</string>
-    <string name="about_app_version">App Version: %s</string>
+    <string name="app_name">胡氏智能</string>
+    <string name="menu_item_about">关于 App</string>
+    <string name="about_app_version">App 版本: %s</string>
 
-    <string name="main_title">Home</string>
+    <string name="main_title">主页</string>
 
-    <string name="esptouch_message_permission">APP require Location permission to get Wi-Fi information. \nClick to request permission</string>
-    <string name="esptouch_message_location">Please turn on GPS to get Wi-Fi information.</string>
-    <string name="esptouch_message_wifi_connection">Please connect Wi-Fi first.</string>
-    <string name="esptouch_message_wifi_frequency">Current Wi-Fi connection is 5G, but the device just support 2.4G.</string>
+    <string name="esptouch_message_permission">需要位置权限来获取 Wi-Fi 信息。 \n点击申请权限</string>
+    <string name="esptouch_message_location">请打开 GPS 以获取 Wi-Fi 信息。</string>
+    <string name="esptouch_message_wifi_connection">请先连上 Wi-Fi</string>
+    <string name="esptouch_message_wifi_frequency">当前连接的是 5G Wi-Fi, 设备仅支持 2.4G Wi-Fi</string>
 
     <string name="esptouch1_title">EspTouch</string>
-    <string name="esptouch1_about_version">EspTouch Version: %s</string>
-    <string name="esptouch1_ssid_title">SSID: </string>
-    <string name="esptouch1_bssid_title">BSSID: </string>
-    <string name="esptouch1_password_title">Password: </string>
-    <string name="esptouch1_device_count_title">Device count: </string>
-    <string name="esptouch1_package_broadcast">Broadcast</string>
-    <string name="esptouch1_package_multicast">Multicast</string>
-    <string name="esptouch1_confirm">Confirm</string>
-    <string name="esptouch1_wifi_5g_message">Device don\'t support 5G Wi-Fi, please make sure the currently connected Wi-Fi is 2.4G, or you can try multicast</string>
-    <string name="esptouch1_location_permission_title">⚠️Warning</string>
-    <string name="esptouch1_location_permission_message">On Android M or higher version, App can\'t get Wi-Fi connection information if you forbid Location permission.</string>
-    <string name="esptouch1_configuring_message">Esptouch is configuring, please wait for a moment…</string>
-    <string name="esptouch1_configure_wifi_change_message">Wi-Fi disconnected or changed</string>
-    <string name="esptouch1_configure_result_failed">EspTouch failed</string>
-    <string name="esptouch1_configure_result_failed_port">Create EspTouch task failed, the EspTouch port could be used by other thread</string>
-    <string name="esptouch1_configure_result_success">EspTouch 完成</string>
-    <string name="esptouch1_configure_result_success_item">BSSID = %1$s, InetAddress = %2$s</string>
+    <string name="esptouch1_about_version">版本: %s</string>
+    <string name="esptouch1_ssid_title">WLAN名称: </string>
+    <string name="esptouch1_bssid_title">WLAN密码: </string>
+    <string name="esptouch1_password_title">密码: </string>
+    <string name="esptouch1_device_count_title">设备数量: </string>
+    <string name="esptouch1_package_broadcast">广播</string>
+    <string name="esptouch1_package_multicast">组播</string>
+    <string name="esptouch1_confirm">一件配网</string>
+    <string name="esptouch1_wifi_5g_message">设备不支持 5G Wi-Fi, 请确认当前连接的 Wi-Fi 为 2.4G, 或者您可以尝试选择组播</string>
+    <string name="esptouch1_location_permission_title">⚠️警告️</string>
+    <string name="esptouch1_location_permission_message">在 Android M 及以上版本，如果您禁止授权位置权限，APP将无法获取 Wi-Fi 信息。</string>
+    <string name="esptouch1_configure_wifi_change_message">Wi-Fi 已断开或发生了变化</string>
+    <string name="esptouch1_configuring_message">正在执行配网, 请稍等片刻…</string>
+    <string name="esptouch1_configure_result_failed">配网失败</string>
+    <string name="esptouch1_configure_result_failed_port">建立 任务失败, 端口可能被其他程序占用</string>
+    <string name="esptouch1_configure_result_success">完成</string>
+    <string name="esptouch1_configure_result_success_item">BSSID: %1$s, 地址: %2$s</string>
 
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">主页</string>
+    <string name="title_dashboard">推荐</string>
+    <string name="title_notifications">我的</string>
 
 </resources>

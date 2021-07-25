@@ -2,6 +2,7 @@ package com.app.espiotsmartconfig;
 
 import android.app.Application;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -71,6 +72,7 @@ public class EspApp extends Application {
     public void onTerminate() {
         super.onTerminate();
         unregisterReceiver(mReceiver);
+        EspApp.getInstance().getServiceConnection().onServiceDisconnected(ComponentName.createRelative(this, EspApp.class.getComponentType().getName()));
     }
 
     public static EspApp getInstance() {
@@ -143,4 +145,5 @@ public class EspApp extends Application {
     public MyServiceConnection getServiceConnection() {
         return mServiceConnection;
     }
+
 }

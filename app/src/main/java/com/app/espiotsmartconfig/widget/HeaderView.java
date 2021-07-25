@@ -81,6 +81,11 @@ public class HeaderView extends FrameLayout {
         return this;
     }
 
+    public HeaderView setMenuVisible(boolean visible) {
+        this.tvMenu.setVisibility(visible ? View.VISIBLE : View.GONE);
+        return this;
+    }
+
     public interface HeaderClickListener {
         void clickRight();
     }

@@ -104,10 +104,19 @@ public class MQTTService extends Service {
         conOpt = new MqttConnectOptions();
         // 清除缓存
         conOpt.setCleanSession(true);
-        // 设置超时时间，单位：秒
-//        conOpt.setConnectionTimeout(10);
-        // 心跳包发送间隔，单位：秒
-//        conOpt.setKeepAliveInterval(1);
+
+        //断开后，是否自动连接
+        conOpt.setAutomaticReconnect(true);
+        //是否清空客户端的连接记录。若为true，则断开后，broker将自动清除该客户端连接信息
+        conOpt.setCleanSession(false);
+        //设置超时时间，单位为秒
+        conOpt.setConnectionTimeout(20);
+        //心跳时间，单位为秒。即多长时间确认一次Client端是否在线
+        conOpt.setKeepAliveInterval(20);
+        //允许同时发送几条消息（未收到broker确认信息）
+        //mqttConnectOptions.setMaxInflight(10);
+        //选择MQTT版本
+        conOpt.setMqttVersion(MqttConnectOptions.MQTT_VERSION_3_1_1);
         // 用户名
         conOpt.setUserName(USER_NAME);
         // 密码
@@ -131,7 +140,7 @@ public class MQTTService extends Service {
                 if (iMqMsgCallback != null) {
                     iMqMsgCallback.connectIng();
                 }
-                client.connect(conOpt, EspApp.getInstance(), iMqttActionListener);
+                client.connect(conOpt, null, iMqttActionListener);
             } catch (MqttException e) {
                 e.printStackTrace();
                 if (iMqMsgCallback != null) {
