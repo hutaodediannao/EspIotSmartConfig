@@ -58,7 +58,7 @@ public class MQTTService extends Service {
 
         @Override
         public void connectionLost(Throwable arg0) {
-            // 失去连接，重连
+            // 失去连接
             Log.i(TAG, "==================> connectionLost:" + arg0.getMessage());
             if (iMqMsgCallback != null) {
                 iMqMsgCallback.onError(arg0);
@@ -81,7 +81,6 @@ public class MQTTService extends Service {
         try {
             boolean isConnected = client.isConnected();
             boolean isConnectNet = isConnectIsNormal();
-
             if (client != null && isConnected && isConnectNet) {
                 client.publish(topic == null ? SUB_TOPIC : topic, msg.getBytes(), (int) qos, false);
             }
@@ -134,7 +133,7 @@ public class MQTTService extends Service {
     /**
      * 连接MQTT服务器
      */
-    private void doClientConnection() {
+    public void doClientConnection() {
         if (!client.isConnected() && isConnectIsNormal()) {
             try {
                 if (iMqMsgCallback != null) {

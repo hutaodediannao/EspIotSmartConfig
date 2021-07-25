@@ -26,6 +26,7 @@ import java.util.Map;
 
 import static com.app.espiotsmartconfig.model.EventMsg.CONNECT_ED_CODE;
 import static com.app.espiotsmartconfig.model.EventMsg.CONNECT_ERROR_CODE;
+import static com.app.espiotsmartconfig.model.EventMsg.CONNECT_FAILED_CODE;
 import static com.app.espiotsmartconfig.model.EventMsg.CONNECT_ING_CODE;
 import static com.app.espiotsmartconfig.model.EventMsg.RECEIVE_MESSAGE_CODE;
 
@@ -138,7 +139,7 @@ public class EspApp extends Application {
         @Override
         public void onError(Throwable e) {
             //出错
-            mServiceConnection.getMqttService().connect();
+            EventBus.getDefault().post(new EventMsg(CONNECT_FAILED_CODE, e.getMessage()));
         }
     };
 

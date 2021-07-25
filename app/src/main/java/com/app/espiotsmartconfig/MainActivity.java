@@ -1,21 +1,22 @@
 package com.app.espiotsmartconfig;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.viewpager.widget.ViewPager;
 
 import com.app.espiotsmartconfig.Adapter.MainFragmentPagerAdapter;
 import com.app.espiotsmartconfig.activity.SmargConfigActivity;
 import com.app.espiotsmartconfig.base.BaseActivity;
-import com.app.espiotsmartconfig.core.BspHelper;
 import com.app.espiotsmartconfig.fragment.BaseFragment;
-import com.app.espiotsmartconfig.fragment.ui.dashboard.DashboardFragment;
-import com.app.espiotsmartconfig.fragment.ui.home.HomeFragment;
-import com.app.espiotsmartconfig.fragment.ui.notifications.NotificationsFragment;
+import com.app.espiotsmartconfig.fragment.ui.DashboardFragment;
+import com.app.espiotsmartconfig.fragment.ui.HomeFragment;
+import com.app.espiotsmartconfig.fragment.ui.NotificationsFragment;
 import com.app.espiotsmartconfig.model.EventMsg;
 import com.app.espiotsmartconfig.widget.HeaderView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -29,6 +30,7 @@ import java.util.List;
 
 import static com.app.espiotsmartconfig.model.EventMsg.CONNECT_ED_CODE;
 import static com.app.espiotsmartconfig.model.EventMsg.CONNECT_ERROR_CODE;
+import static com.app.espiotsmartconfig.model.EventMsg.CONNECT_FAILED_CODE;
 import static com.app.espiotsmartconfig.model.EventMsg.CONNECT_ING_CODE;
 import static com.app.espiotsmartconfig.model.EventMsg.RECEIVE_MESSAGE_CODE;
 import static com.app.espiotsmartconfig.model.EventMsg.TOAST_CODE;
@@ -47,6 +49,7 @@ public class MainActivity extends BaseActivity {
     private ViewPager viewPager;
     private List<Integer> bottomNavList = new ArrayList<>();
     private List<String> titleNavList = new ArrayList<>();
+    private AlertDialog tipsDialog;
 
     @SuppressLint("NonConstantResourceId")
     @Override
@@ -128,11 +131,16 @@ public class MainActivity extends BaseActivity {
                 case RECEIVE_MESSAGE_CODE:
                     //接收到指令
                     String data = msg.data;
-                    showToast(data);
+                    if (data != null && !data.trim().equals("")) {
+                        //指令执行成功
+                    }
+//                    showToast(data);
                     break;
                 case CONNECT_ING_CODE:
                     if (loadingDialog == null) {
-                        loadingDialog = ProgressDialog.show(MainActivity.this, "服务初始化", "正在连接服务器...");
+                        loadingDialog = ProgressDialog.
+                                show(MainActivity.this, "服务初始化", "正在连接服务器...");
+                        loadingDialog.setCancelable(true);
                     } else {
                         loadingDialog.show();
                     }
@@ -142,6 +150,21 @@ public class MainActivity extends BaseActivity {
                     if (loadingDialog != null) {
                         loadingDialog.dismiss();
                     }
+                    break;
+                case CONNECT_FAILED_CODE:
+//                    if (tipsDialog == null) {
+//                        tipsDialog = new AlertDialog.Builder(this).setTitle("连接已断开").setMessage("是否重试?")
+//                                .setCancelable(true)
+//                                .setPositiveButton("确定", (dialogInterface, i) -> {
+//                                    tipsDialog.dismiss();
+//                                    //重新连接机制
+//                                    EspApp.getInstance().getServiceConnection().getMqttService().doClientConnection();
+//                                }).setNegativeButton("取消", (dialogInterface, i) -> {
+//                                    tipsDialog.dismiss();
+//                                }).create();
+//                    }
+//                    tipsDialog.show();
+                    showToast("连接发生了异常，请检查网络后重试!");
                     break;
                 default:
                     break;

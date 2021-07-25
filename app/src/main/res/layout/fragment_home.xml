@@ -4,20 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.ui.home.HomeFragment">
+    tools:context=".fragment.ui.HomeFragment">
 
-    <Switch
-        android:id="@+id/switchLed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="照明开关"
-        android:textSize="20sp"
-        android:drawablePadding="10dp"
-        tools:layout_editor_absoluteY="252dp"
-        tools:ignore="MissingConstraints,UseSwitchCompatOrMaterialXml"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
