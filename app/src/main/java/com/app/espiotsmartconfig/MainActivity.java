@@ -77,4 +77,5 @@ public class MainActivity extends BaseActivity {
     public void close(View view) {
         BspHelper.pushData("0");
     }
+
 }

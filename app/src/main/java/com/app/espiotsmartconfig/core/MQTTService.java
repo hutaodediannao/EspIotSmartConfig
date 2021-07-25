@@ -9,6 +9,8 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
 
+import com.app.espiotsmartconfig.EspApp;
+
 import org.eclipse.paho.android.service.MqttAndroidClient;
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
@@ -129,7 +131,7 @@ public class MQTTService extends Service {
                 if (iMqMsgCallback != null) {
                     iMqMsgCallback.connectIng();
                 }
-                client.connect(conOpt, null, iMqttActionListener);
+                client.connect(conOpt, EspApp.getInstance(), iMqttActionListener);
             } catch (MqttException e) {
                 e.printStackTrace();
                 if (iMqMsgCallback != null) {

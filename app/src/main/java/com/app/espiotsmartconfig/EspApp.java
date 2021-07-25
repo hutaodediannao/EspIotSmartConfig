@@ -1,5 +1,6 @@
 package com.app.espiotsmartconfig;
 
+import android.app.Application;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -7,7 +8,6 @@ import android.content.IntentFilter;
 import android.location.LocationManager;
 import android.net.wifi.WifiManager;
 import android.os.Build;
-import android.support.multidex.MultiDexApplication;
 
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.MutableLiveData;
@@ -28,7 +28,7 @@ import static com.app.espiotsmartconfig.model.EventMsg.CONNECT_ERROR_CODE;
 import static com.app.espiotsmartconfig.model.EventMsg.CONNECT_ING_CODE;
 import static com.app.espiotsmartconfig.model.EventMsg.RECEIVE_MESSAGE_CODE;
 
-public class EspApp extends MultiDexApplication {
+public class EspApp extends Application {
 
     private static EspApp app;
     private MutableLiveData<String> mBroadcastData;
@@ -143,5 +143,4 @@ public class EspApp extends MultiDexApplication {
     public MyServiceConnection getServiceConnection() {
         return mServiceConnection;
     }
-
 }
