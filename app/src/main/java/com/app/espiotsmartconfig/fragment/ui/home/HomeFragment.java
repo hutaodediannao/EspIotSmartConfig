@@ -1,17 +1,16 @@
 package com.app.espiotsmartconfig.fragment.ui.home;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Switch;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-
 import com.app.espiotsmartconfig.R;
+import com.app.espiotsmartconfig.core.BspHelper;
 import com.app.espiotsmartconfig.databinding.FragmentHomeBinding;
 import com.app.espiotsmartconfig.fragment.BaseFragment;
 
@@ -20,21 +19,18 @@ public class HomeFragment extends BaseFragment {
     private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
+        @SuppressLint("UseSwitchCompatOrMaterialCode")
+        final Switch switchLed =binding.switchLed;
+        switchLed.setOnCheckedChangeListener((compoundButton, b) -> {
+            BspHelper.pushData(b ? "1" : "0");
         });
+
         return root;
     }
 
