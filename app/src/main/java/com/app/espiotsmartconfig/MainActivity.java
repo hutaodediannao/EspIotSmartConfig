@@ -47,6 +47,8 @@ public class MainActivity extends BaseActivity {
     public void onGetMessage(EventMsg msg) {
         switch (msg.code) {
             case TOAST_CODE:
+                String dataStr = msg.data;
+                showToast(dataStr);
             case RECEIVE_MESSAGE_CODE:
                 //接收到指令
                 String data = msg.data;
