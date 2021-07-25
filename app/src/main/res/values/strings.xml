@@ -29,4 +29,9 @@
     <string name="esptouch1_configure_result_failed_port">Create EspTouch task failed, the EspTouch port could be used by other thread</string>
     <string name="esptouch1_configure_result_success">EspTouch 完成</string>
     <string name="esptouch1_configure_result_success_item">BSSID = %1$s, InetAddress = %2$s</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
 </resources>

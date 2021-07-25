@@ -29,4 +29,9 @@
     <string name="esptouch1_configure_result_failed_port">建立 任务失败, 端口可能被其他程序占用</string>
     <string name="esptouch1_configure_result_success">完成</string>
     <string name="esptouch1_configure_result_success_item">BSSID: %1$s, 地址: %2$s</string>
+
+    <string name="title_home">主页</string>
+    <string name="title_dashboard">推荐</string>
+    <string name="title_notifications">我的</string>
+
 </resources>
