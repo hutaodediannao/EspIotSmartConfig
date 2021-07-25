@@ -45,30 +45,32 @@ public class MainActivity extends BaseActivity {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onGetMessage(EventMsg msg) {
-        switch (msg.code) {
-            case TOAST_CODE:
-                String dataStr = msg.data;
-                showToast(dataStr);
-            case RECEIVE_MESSAGE_CODE:
-                //接收到指令
-                String data = msg.data;
-                showToast(data);
-                break;
-            case CONNECT_ING_CODE:
-                if (loadingDialog == null) {
-                    loadingDialog = ProgressDialog.show(MainActivity.this, "服务初始化", "正在连接服务器...");
-                } else {
-                    loadingDialog.show();
-                }
-                break;
-            case CONNECT_ED_CODE:
-            case CONNECT_ERROR_CODE:
-                if (loadingDialog != null) {
-                    loadingDialog.dismiss();
-                }
-                break;
-            default:
-                break;
+        if (mWeakReference.get() != null && !mWeakReference.get().isFinishing()) {
+            switch (msg.code) {
+                case TOAST_CODE:
+                    String dataStr = msg.data;
+                    showToast(dataStr);
+                case RECEIVE_MESSAGE_CODE:
+                    //接收到指令
+                    String data = msg.data;
+                    showToast(data);
+                    break;
+                case CONNECT_ING_CODE:
+                    if (loadingDialog == null) {
+                        loadingDialog = ProgressDialog.show(MainActivity.this, "服务初始化", "正在连接服务器...");
+                    } else {
+                        loadingDialog.show();
+                    }
+                    break;
+                case CONNECT_ED_CODE:
+                case CONNECT_ERROR_CODE:
+                    if (loadingDialog != null) {
+                        loadingDialog.dismiss();
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
     }
 

@@ -19,7 +19,7 @@
     <string name="esptouch1_device_count_title">设备数量: </string>
     <string name="esptouch1_package_broadcast">广播</string>
     <string name="esptouch1_package_multicast">组播</string>
-    <string name="esptouch1_confirm">确认</string>
+    <string name="esptouch1_confirm">一件配网</string>
     <string name="esptouch1_wifi_5g_message">设备不支持 5G Wi-Fi, 请确认当前连接的 Wi-Fi 为 2.4G, 或者您可以尝试选择组播</string>
     <string name="esptouch1_location_permission_title">⚠️警告️</string>
     <string name="esptouch1_location_permission_message">在 Android M 及以上版本，如果您禁止授权位置权限，APP将无法获取 Wi-Fi 信息。</string>
