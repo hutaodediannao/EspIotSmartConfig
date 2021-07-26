@@ -13,6 +13,8 @@ import androidx.annotation.Nullable;
 public class CustomFireView extends ImageView {
 
     private static final String TAG = "CustomFireView";
+    //点火最小下滑距离
+    private static final int OPEN_FIRE_DISTANCE = 40;
 
     public CustomFireView(Context context) {
         super(context);
@@ -27,6 +29,7 @@ public class CustomFireView extends ImageView {
     }
 
     private float downY;
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()) {
@@ -35,7 +38,7 @@ public class CustomFireView extends ImageView {
                 break;
             case MotionEvent.ACTION_MOVE:
                 float moveY = event.getY();
-                if (moveY - downY > 200) {
+                if (moveY - downY > OPEN_FIRE_DISTANCE) {
                     if (callbackListener != null) {
                         Log.i(TAG, "callbackListener.openFire() 开始执行...");
                         callbackListener.openFire();
@@ -55,8 +58,9 @@ public class CustomFireView extends ImageView {
         return true;
     }
 
-    public interface CallbackListener{
+    public interface CallbackListener {
         void openFire();
+
         void closeFire();
     }
 

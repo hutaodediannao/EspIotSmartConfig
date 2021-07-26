@@ -19,6 +19,18 @@
         android:scaleType="centerInside"
         android:src="@mipmap/off_fire" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/darkGray"
+        android:textSize="20sp"
+        android:ems="1"
+        android:layout_marginBottom="170dp"
+        android:layout_marginRight="170dp"
+        android:text="胡氏智能打火机"/>
+
     <com.app.espiotsmartconfig.widget.HeaderView
         android:id="@+id/header"
         android:layout_width="match_parent"
