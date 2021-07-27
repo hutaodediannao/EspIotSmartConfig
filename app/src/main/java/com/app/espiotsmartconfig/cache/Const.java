@@ -36,4 +36,13 @@ class Const {
         return list;
     }
 
+    //云台接入的指令设备
+    public static final String LIG = "LIG";
+    public static final String CLO = "CLO";
+    public static final String LED = "LED";
+    public static final String CAR = "CAR";
+    public static final String CAM = "CAM";
+    public static final String ROT = "ROT";
+    public static final String JUN = "JUN";
+    public static final String FAN = "FAN";
 }

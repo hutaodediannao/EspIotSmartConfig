@@ -18,6 +18,8 @@ import com.app.espiotsmartconfig.widget.HeaderView;
 
 import java.io.IOException;
 
+import static com.app.espiotsmartconfig.cache.Const.LIG;
+
 public class DeviceActivity extends BaseActivity {
 
     private boolean isOn = false;
@@ -51,7 +53,7 @@ public class DeviceActivity extends BaseActivity {
                 if (!isOn) {
                     isOn = true;
                     imageView.setImageResource(isOn ? R.mipmap.on_fire : R.mipmap.off_fire);
-                    BspHelper.pushData("1");
+                    BspHelper.pushData(LIG + "1");
                     playSound(OPEN);
 
                     try {
@@ -74,7 +76,7 @@ public class DeviceActivity extends BaseActivity {
                 if (isOn) {
                     isOn = false;
                     imageView.setImageResource(isOn ? R.mipmap.on_fire : R.mipmap.off_fire);
-                    BspHelper.pushData("0");
+                    BspHelper.pushData(LIG + "0");
                     playSound(CLOSE);
 
                     try {
