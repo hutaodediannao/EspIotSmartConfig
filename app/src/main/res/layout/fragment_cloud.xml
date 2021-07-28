@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.deviceFragment.CloudFragment">
+
+    <com.app.espiotsmartconfig.widget.HeaderView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        app:backVisible="false"
+        app:rightContent="" />
+
+    <FrameLayout
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="@drawable/radius_stroke_bg"
+        android:layout_centerInParent="true">
+
+        <com.app.espiotsmartconfig.widget.CustomFeedImageView
+            android:id="@+id/ivUp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_up"
+            android:scaleType="centerInside"
+            android:layout_gravity="center_horizontal|top"/>
+        <com.app.espiotsmartconfig.widget.CustomFeedImageView
+            android:id="@+id/ivDown"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_up"
+            android:scaleType="centerInside"
+            android:rotation="180"
+            android:layout_gravity="center_horizontal|bottom"/>
+        <com.app.espiotsmartconfig.widget.CustomFeedImageView
+            android:id="@+id/ivLeft"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_up"
+            android:scaleType="centerInside"
+            android:rotation="-90"
+            android:layout_gravity="center_vertical|left"/>
+        <com.app.espiotsmartconfig.widget.CustomFeedImageView
+            android:id="@+id/ivRight"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_up"
+            android:scaleType="centerInside"
+            android:rotation="90"
+            android:layout_gravity="center_vertical|right"/>
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/radius_stroke_bg"
+            android:scaleType="centerInside"
+            android:layout_gravity="center"/>
+
+    </FrameLayout>
+
+</RelativeLayout>

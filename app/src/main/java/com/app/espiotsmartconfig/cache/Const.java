@@ -15,16 +15,25 @@ class Const {
 
     public static final String SERIALIZABLE = "Serializable";
 
+    public static final String FIRE_COD = "仿真打火机";
+    public static final String CAILED_COD = "智声彩灯";
+    public static final String CAR_COD = "智能控车";
+    public static final String CAMERA_COD = "远程相机";
+    public static final String ROBOT_COD = "机械手臂";
+    public static final String LAJITONG_COD = "感应垃圾桶";
+    public static final String FENGSHAN_COD = "随心风扇";
+    public static final String CLOUDCONTROLLER_COD = "云台智控";
+
     public static List<Device> getDeviceDataSource(Context context) {
         List<Device> list = Arrays.asList(
-                new Device(1000, "仿真打火机", R.drawable.ic_fire),
-                new Device(1000, "智声彩灯", R.drawable.ic_cailed),
-                new Device(1000, "智能控车", R.drawable.ic_car),
-                new Device(1000, "远程相机", R.drawable.ic_camera),
-                new Device(1000, "机械手臂", R.drawable.ic_robot),
-                new Device(1000, "感应垃圾桶", R.drawable.ic_lajitong),
-                new Device(1000, "随心风扇", R.drawable.ic_feng_shan),
-                new Device(1000, "云台智控", R.drawable.ic_cloudcontroller)
+                new Device(1000, FIRE_COD, R.drawable.ic_fire),
+                new Device(1000, CAILED_COD, R.drawable.ic_cailed),
+                new Device(1000, CAR_COD, R.drawable.ic_car),
+                new Device(1000, CAMERA_COD, R.drawable.ic_camera),
+                new Device(1000, ROBOT_COD, R.drawable.ic_robot),
+                new Device(1000, LAJITONG_COD, R.drawable.ic_lajitong),
+                new Device(1000, FENGSHAN_COD, R.drawable.ic_feng_shan),
+                new Device(1000, CLOUDCONTROLLER_COD, R.drawable.ic_cloudcontroller)
         );
         for (Device dv : list) {
             dv.setOnClickListener(view -> {

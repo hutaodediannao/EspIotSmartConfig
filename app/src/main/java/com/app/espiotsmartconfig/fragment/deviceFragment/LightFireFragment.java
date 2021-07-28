@@ -58,7 +58,6 @@ public class LightFireFragment extends BaseFragment {
                 .setMenuVisible(false);
         CustomFireView imageView = rootView.findViewById(R.id.ivFire);
         initListener(imageView);
-
         return rootView;
     }
 
