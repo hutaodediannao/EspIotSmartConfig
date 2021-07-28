@@ -1,40 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F6F6F6"
-    tools:context=".activity.DeviceActivity">
-
-    <com.app.espiotsmartconfig.widget.CustomFireView
-        android:id="@+id/ivFire"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingTop="50dp"
-        android:paddingBottom="100dp"
-        android:paddingRight="30dp"
-        android:layout_below="@+id/header"
-        android:layout_centerHorizontal="true"
-        android:scaleType="centerInside"
-        android:src="@mipmap/off_fire" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:textColor="@color/darkGray"
-        android:textSize="20sp"
-        android:ems="1"
-        android:layout_marginBottom="170dp"
-        android:layout_marginRight="170dp"
-        android:text="胡氏智能打火机"/>
-
-    <com.app.espiotsmartconfig.widget.HeaderView
-        android:id="@+id/header"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:backVisible="false"
-        app:rightContent="" />
-</RelativeLayout>
+    android:id="@+id/fragmentContainer"
+    tools:context=".activity.DeviceActivity"/>
