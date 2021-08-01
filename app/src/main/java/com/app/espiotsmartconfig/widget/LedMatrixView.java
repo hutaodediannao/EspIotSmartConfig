@@ -5,14 +5,12 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 
 import com.app.espiotsmartconfig.R;
-import com.app.espiotsmartconfig.core.BspHelper;
 import com.app.espiotsmartconfig.util.DensityUtil;
 
 import java.util.ArrayList;
