@@ -33,6 +33,7 @@ public class LedMatrixView extends ImageView {
     private Paint mCheckOffPaint;
     private List<Boolean> mStateList;
     private List<Integer> mCacheList;
+    float strokeWidth;
 
     public LedMatrixView(Context context) {
         this(context, null);
@@ -45,9 +46,10 @@ public class LedMatrixView extends ImageView {
     public LedMatrixView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mLinePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mLinePaint.setColor(getResources().getColor(R.color.darkGray));
+        mLinePaint.setColor(getResources().getColor(R.color.black));
         mLinePaint.setStyle(Paint.Style.STROKE);
         mLinePaint.setStrokeWidth(DensityUtil.dip2px(context, 2));
+        strokeWidth = mLinePaint.getStrokeWidth();
 
         mCheckOnPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mCheckOnPaint.setColor(getResources().getColor(R.color.blue));
@@ -111,14 +113,14 @@ public class LedMatrixView extends ImageView {
      * @param canvas
      */
     private void drawMatrix(Canvas canvas) {
-        canvas.drawRect(0, 0, mWidth, mWidth, mLinePaint);
+        canvas.drawRect(strokeWidth/2, strokeWidth/2, mWidth-strokeWidth/2, mWidth-strokeWidth/2, mLinePaint);
         //纵向绘制线框
         for (int i = 1; i < 8; i++) {
-            canvas.drawLine(singleWidth * i, 0, singleWidth * i, mWidth, mLinePaint);
+            canvas.drawLine(singleWidth * i+strokeWidth/2, strokeWidth/2, singleWidth * i+strokeWidth/2, mWidth-strokeWidth/2, mLinePaint);
         }
         //横向绘制线框
         for (int i = 1; i < 8; i++) {
-            canvas.drawLine(0, singleWidth * i, mWidth, singleWidth * i, mLinePaint);
+            canvas.drawLine(strokeWidth/2, singleWidth * i+strokeWidth/2, mWidth-strokeWidth/2, singleWidth * i+strokeWidth/2, mLinePaint);
         }
     }
 
