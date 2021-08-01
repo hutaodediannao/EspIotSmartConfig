@@ -26,7 +26,7 @@ public class DeviceAdapter extends BaseRecyclerAdapter<Device> {
     @Override
     public void bindHolder(BaseViewHolder holder, int position, Device device) {
         holder.setImageView(R.id.ivIcon, device.getIconRes())
-                .setText(device.getName(), R.id.tvTitle);
+                .setText(R.id.tvTitle, device.getName());
         holder.itemView.setOnClickListener(device.getOnClickListener());
     }
 }

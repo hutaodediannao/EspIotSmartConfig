@@ -7,6 +7,7 @@ import com.app.espiotsmartconfig.base.BaseActivity;
 import com.app.espiotsmartconfig.cache.Const;
 import com.app.espiotsmartconfig.fragment.BaseFragment;
 import com.app.espiotsmartconfig.fragment.deviceFragment.CloudFragment;
+import com.app.espiotsmartconfig.fragment.deviceFragment.LedFragment;
 import com.app.espiotsmartconfig.fragment.deviceFragment.LightFireFragment;
 import com.app.espiotsmartconfig.model.Device;
 
@@ -24,6 +25,7 @@ public class DeviceActivity extends BaseActivity {
                 fragment = BaseFragment.newInstance(LightFireFragment.class, device);
                 break;
             case Const.CAILED_COD:
+                fragment = BaseFragment.newInstance(LedFragment.class, device);
                 break;
             case Const.CAR_COD:
                 break;

@@ -6,7 +6,9 @@ import android.content.Intent;
 import com.app.espiotsmartconfig.R;
 import com.app.espiotsmartconfig.activity.DeviceActivity;
 import com.app.espiotsmartconfig.model.Device;
+import com.app.espiotsmartconfig.model.LedDevice;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -45,6 +47,15 @@ class Const {
         return list;
     }
 
+    public static List<LedDevice> getLedDeviceListDataSource(int ledCount){
+        List<LedDevice> ledDevices = new ArrayList<>();
+        for (int i = 0; i < ledCount; i++) {
+            LedDevice ledDevice = new LedDevice(false);
+            ledDevices.add(ledDevice);
+        }
+        return ledDevices;
+    }
+
     //云台接入的指令设备
     public static final String LIG = "LIG";
     public static final String CLO = "CLO";
@@ -54,4 +65,5 @@ class Const {
     public static final String ROT = "ROT";
     public static final String JUN = "JUN";
     public static final String FAN = "FAN";
+
 }

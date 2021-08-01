@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 /**
@@ -31,7 +32,7 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
         this.mViewSparseArray = new SparseArray<>();
     }
 
-    public <T> T getView(int viewId){
+    public <T> T getView(int viewId) {
         View t = mViewSparseArray.get(viewId);
         if (t == null) {
             t = this.itemView.findViewById(viewId);
@@ -40,27 +41,33 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
         return (T) t;
     }
 
-    public BaseViewHolder setText(String text, int viewId) {
+    public BaseViewHolder setText(int viewId, String text) {
         TextView textView = getView(viewId);
         textView.setText(text);
         return this;
     }
 
-    public BaseViewHolder setCheckBox(boolean checked, int viewId) {
+    public BaseViewHolder setCheckBox(int viewId, boolean checked) {
         CheckBox checkBox = getView(viewId);
         checkBox.setChecked(checked);
         return this;
     }
 
-    public BaseViewHolder setImageView( int viewId, int imgResId) {
+    public BaseViewHolder setImageView(int viewId, int imgResId) {
         ImageView imageView = getView(viewId);
         imageView.setImageResource(imgResId);
         return this;
     }
 
-    public BaseViewHolder setVisible(boolean visible, int viewId) {
+    public BaseViewHolder setVisible(int viewId, boolean visible) {
         View view = getView(viewId);
         view.setVisibility(visible ? View.VISIBLE : View.GONE);
+        return this;
+    }
+
+    public BaseViewHolder setCardViewBackgroundColor(int viewId, int color) {
+        CardView cardView = getView(viewId);
+        cardView.setCardBackgroundColor(color);
         return this;
     }
 
